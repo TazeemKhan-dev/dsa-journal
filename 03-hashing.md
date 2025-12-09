@@ -8,7 +8,6 @@
 - Mapping values → indices or frequencies
 
 ---
-
 ### Q95 — Longest Consecutive Sequence
 
 - **Pattern:**  
@@ -28,5 +27,7 @@
   - Range merging problems  
   - Any “longest consecutive integers” problem  
   - Problems where HashSet is used for existence checking  
+
+**Tags:** hashing, hashset, consecuitve-sequence, range-merge, array-set, O(n)-scan
 
 ---

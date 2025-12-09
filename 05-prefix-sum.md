@@ -8,17 +8,6 @@
 - Negative numbers allowed → sliding window fails
 
 ---
-
-## 📝 Journal Entry Template
-
-### Problem Name
-
-- **Pattern:**  
-- **Key Trick:**  
-- **Mistake:**  
-- **Identify Similar Problems:**  
-
----
 ### Q96: Longest Subarray with Sum K
 
 - **Pattern:**  
@@ -32,7 +21,7 @@
 
 - **Mistake:**  
   Used `contains()` instead of `containsKey()`.  
-  Also initially forgot that overwriting prefix sum reduces subarray length — always store FIRST index only.
+  Also initially forgot that overwriting prefix sum reduces subarray length — always store the FIRST index only.
 
 - **Identify Similar Problems:**  
   - Any problem asking for **longest/shortest/any subarray with a target sum**  
@@ -41,5 +30,33 @@
   - Longest subarray with sum ≤ K (variant of sliding window + prefix tricks)  
   - Subarrays with given XOR (prefix XOR works the same way)
 
+**Tags:** prefix-sum, hashmap, longest-subarray, range-sum, negative-numbers, sliding-window-incompatible
+
 ---
 
+
+### Q97: Count Subarrays With Given Sum
+
+- **Pattern:**  
+  Prefix Sum + HashMap (frequency map)
+
+- **Key Trick:**  
+  Maintain a running prefix sum.  
+  If `(prefixSum - k)` exists in the hashmap, it means that many subarrays ending at the current index sum to `k`.  
+  Increase count by the **frequency** (not just +1).  
+  Always store prefix sum frequencies to allow multiple valid starting points.
+
+- **Mistake:**  
+  I incremented count by **1** whenever I found `sum - k`, instead of adding the full frequency from the map.  
+  Also, I used an `if` block incorrectly to decide when to store prefix sums — prefix sums must be added to map **every iteration**, not conditionally.
+
+- **Identify Similar Problems:**  
+  - Count subarrays with sum divisible by K (same prefix idea with modulo)  
+  - Longest subarray with sum K (store first index of prefix sum)  
+  - Count subarrays with XOR = K (prefix XOR version of same logic)  
+  - Number of subarrays with sum zero  
+  - Largest subarray with sum zero  
+
+**Tags:** prefix-sum, hashmap, subarray-count, range-sum, frequency-map
+
+---
