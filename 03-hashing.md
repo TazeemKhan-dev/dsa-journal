@@ -31,3 +31,29 @@
 **Tags:** hashing, hashset, consecuitve-sequence, range-merge, array-set, O(n)-scan
 
 ---
+### Q165: Missing Numbers
+
+- **Pattern:**  
+  HashMap Frequency Comparison (multiset difference)
+
+- **Key Trick:**  
+  Count frequencies in both arrays and compare them.  
+  A number is considered “missing” if:  
+  - It appears more times in `brr` than in `arr`, or  
+  - It appears in `brr` but not in `arr`.  
+  Only add each number once and sort the final list.
+
+- **Mistake:**  
+  Initially forgot to check **frequency difference**, not just element existence.  
+  Also missed the case where an element exists in both arrays but appears **fewer times** in `arr`.
+
+- **Identify Similar Problems:**  
+  - Compare two multisets or lists  
+  - Find extra numbers in an array  
+  - Check mismatched frequencies between two datasets  
+  - Missing numbers in a given range (variation)  
+  - Count differences between two frequency maps  
+
+**Tags:** hashing, frequency-map, multiset-difference, array-comparison, sorting-required
+
+---
