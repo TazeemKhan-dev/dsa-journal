@@ -1,6 +1,9 @@
 # DSA Journal – Linked List
-
-Use this file to store journal entries for **Linked List** related problems.
+## 🧠 When to Think About Linked Lists
+- Slow & fast pointer (cycle, middle)
+- Reversal of list or segments of list
+- Modifying pointers (merge, split, rotate)
+- Detect cycles, intersections
 
 ---
 

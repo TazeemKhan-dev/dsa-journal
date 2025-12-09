@@ -1,6 +1,10 @@
 # DSA Journal – Greedy
-
-Use this file to store journal entries for **Greedy** related problems.
+## 🧠 When to Think About Greedy
+- Local optimal → global optimal
+- Activity selection
+- Minimum platform
+- Interval scheduling
+- Pick smallest/largest at step for best result
 
 ---
 

@@ -1,6 +1,12 @@
 # DSA Journal – Arrays
 
-Use this file to store journal entries for **Arrays** related problems.
+## 🧠 When to Think About Arrays
+- Problems involving direct index manipulation
+- Brute-force → optimized using prefix/suffix logic
+- Sorting + scanning for patterns
+- Frequency or counting (when HashMap not needed)
+- Basic sliding window (if no negatives)
+
 
 ---
 
@@ -16,3 +22,12 @@ Use this file to store journal entries for **Arrays** related problems.
 ---
 
 (Add more entries below using the same structure.)
+### Problem Name
+
+- **Pattern:**
+- **Key Trick:**
+- **Mistake:**
+- **Identify Similar Problems:**
+
+---
+dsa

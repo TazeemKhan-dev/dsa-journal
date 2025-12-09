@@ -1,6 +1,9 @@
 # DSA Journal – Sorting
-
-Use this file to store journal entries for **Sorting** related problems.
+## 🧠 When to Think About Sorting
+- Convert unsorted → sorted to simplify logic
+- Two-pointer after sorting
+- Greedy problems where order matters
+- Grouping or merging based on value order
 
 ---
 

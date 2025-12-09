@@ -1,6 +1,8 @@
 # DSA Journal – Miscellaneous
-
-Use this file to store journal entries for **Miscellaneous** related problems.
+## 🧠 When to Use Misc
+- Problems with no clear category
+- Hybrid techniques
+- Math / bit manipulation heavy logic
 
 ---
 

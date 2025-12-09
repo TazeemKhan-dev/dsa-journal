@@ -1,6 +1,10 @@
 # DSA Journal – Binary Search Tree (BST)
 
-Use this file to store journal entries for **Binary Search Tree (BST)** related problems.
+## 🧠 When to Think About BST
+- Binary search properties (left < root < right)
+- Successor/predecessor queries
+- Insert/delete node operations
+- Range queries
 
 ---
 

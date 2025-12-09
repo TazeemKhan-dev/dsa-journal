@@ -1,6 +1,8 @@
 # DSA Journal – Queue
-
-Use this file to store journal entries for **Queue** related problems.
+## 🧠 When to Think About Queues
+- BFS traversal
+- Sliding window maximum (deque)
+- First non-repeating element in stream
 
 ---
 

@@ -1,6 +1,11 @@
 # DSA Journal – Strings
 
-Use this file to store journal entries for **Strings** related problems.
+## 🧠 When to Think About Strings
+- Palindrome checks
+- Anagram / character frequency problems
+- Sliding window on characters
+- Two-pointer left/right shrinking
+- Reversing words, parsing, tokenizing
 
 ---
 

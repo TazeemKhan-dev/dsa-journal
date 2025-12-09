@@ -1,6 +1,10 @@
 # DSA Journal – Recursion
-
-Use this file to store journal entries for **Recursion** related problems.
+## 🧠 When to Think About Recursion
+- Divide-and-conquer problems
+- Backtracking (subsets, permutations)
+- Tree traversals
+- Problems naturally defined recursively
+- DP transition resembles recursion
 
 ---
 

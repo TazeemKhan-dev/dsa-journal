@@ -1,6 +1,10 @@
 # DSA Journal – Stack
-
-Use this file to store journal entries for **Stack** related problems.
+## 🧠 When to Think About Stacks
+- Next greater/smaller element
+- Valid parentheses / syntax validation
+- Histogram maximum area
+- Monotonic stack patterns
+- Reversing or backtracking operations
 
 ---
 

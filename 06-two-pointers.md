@@ -1,6 +1,12 @@
 # DSA Journal – Two Pointers
 
-Use this file to store journal entries for **Two Pointers** related problems.
+## 🧠 When to Think About Two Pointers
+- Array/string is sorted or can be sorted
+- Move left/right toward middle
+- Pair/triplet sum problems
+- Removing duplicates
+- Partitioning / segregation problems
+
 
 ---
 

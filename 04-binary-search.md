@@ -1,6 +1,12 @@
 # DSA Journal – Binary Search
 
-Use this file to store journal entries for **Binary Search** related problems.
+## 🧠 When to Think About Binary Search
+- “Find smallest/largest … that satisfies condition”
+- Monotonic property exists
+- Search space is answer-based (Binary Search on Answer)
+- Problems involving sorted arrays
+- Minimize/maximize something under constraints
+
 
 ---
 

@@ -1,6 +1,11 @@
 # DSA Journal – Graphs
+## 🧠 When to Think About Graphs
+- BFS/DFS traversal problems
+- Shortest path (unweighted → BFS, weighted → Dijkstra)
+- Connected components
+- Cycle detection
+- Topological sorting (DAGs)
 
-Use this file to store journal entries for **Graphs** related problems.
 
 ---
 
