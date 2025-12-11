@@ -10,28 +10,26 @@
 **Tag Guide:** dfs, tree, subtree, hierarchy, postorder, graph-traversal, memoization
 
 ---
-### Q166: Employees and Manager
+### Q: Employees and Manager — Count Employees Under Each Manager
 
 - **Pattern:**  
-  DFS on Tree (subtree size computation)
+  DFS on Tree (postorder subtree-size computation)
 
 - **Key Trick:**  
-  Convert employee→manager mapping into a tree where the CEO is the root.  
-  Use DFS to compute the size of each subtree.  
-  The number of employees under any manager = subtree_size - 1.  
-  Memoization ensures each subtree is computed once.
+  Convert the `employee → manager` map into an adjacency list (`manager → direct reports`).  
+  Identify the CEO (`employee == manager`).  
+  DFS returns **subtree size including self**, but store **subtree size − 1** as the total employees under that manager.
 
-- **Mistake:**  
-  Initially re-traversed subtrees multiple times (O(N²) approach).  
-  Also missed separating "return subtree size" from "store report count".
+- **Mistake Avoided:**  
+  Not confusing:  
+  - **DFS return value** = total subtree size (including the node)  
+  - **Stored result** = total employees under the manager (excluding self)
 
 - **Identify Similar Problems:**  
-  - Count nodes in each subtree of a tree  
-  - Number of descendants of each node  
-  - Company hierarchy / organizational chart problems  
-  - Tree DP (postorder traversal computing values)  
-  - Sum of subtree values (same DFS pattern)  
+  - Count descendants in each subtree  
+  - Organization chart queries  
+  - Tree DP: computing subtree sums  
+  - Counting nodes in a subtree  
+  - Any postorder DFS aggregation problems  
 
-**Tags:** dfs, tree, hierarchy, subtree-size, adjacency-list, memoization, graph-traversal
-
----
+**Tags:** dfs, tree, hierarchy, subtree-size, adjacency-list, tree-dp, postorder
