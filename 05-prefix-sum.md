@@ -60,3 +60,27 @@
 **Tags:** prefix-sum, hashmap, subarray-count, range-sum, frequency-map
 
 ---
+
+### 🔑 LOG — Q174 Subarray Sum Equals K
+
+- **Pattern:** Prefix Sum + HashMap frequency  
+- **Key Trick:** Count how many times `prefixSum - k` has appeared before  
+- **Mistake to Avoid:** Forgetting `map.put(0, 1)` → misses subarrays starting at index 0  
+- **Correct Flow:** runningSum → check (runningSum - k) → add frequency → update map  
+- **Similar Problems:**  
+  * Subarrays with sum divisible by K  
+  * Longest subarray with sum K  
+  * Count subarrays with XOR = K (similar prefix idea)  
+- **Tags:** Prefix Sum, HashMap, Counting, Subarrays, Negative numbers
+
+### 🔑 LOG — Q175 Find Hinged Element
+
+- **Pattern:** Prefix-Max + Suffix-Min  
+- **Key Trick:** leftMax[i-1] < arr[i] < rightMin[i+1]  
+- **Mistake to Avoid:** Forgetting strict inequality (duplicates break hinge)  
+- **Correct Flow:** build leftMax → build rightMin → check last → scan middle  
+- **Similar Problems:**  
+  * Element greater than all left & smaller than all right  
+  * Pivot index (sum-based)  
+  * Peaks / valley detection  
+- **Tags:** Arrays, Prefix/Suffix, Comparisons, Linear Scan

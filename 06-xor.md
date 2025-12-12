@@ -39,3 +39,14 @@
 **Tags:** prefix-xor, hashmap, xor-logic, subarray-count, range-xor, reversible-operations
 
 ---
+### 🔑 LOG — Q177 Find Repeating & Missing Number
+
+- **Pattern:** Prefix math / XOR / Frequency counting  
+- **Key Trick:** repeated - missing = sumDiff, repeated + missing = sqDiff/sumDiff  
+- **Mistake to Avoid:** Using simple (expectedSum - actualSum) → fails when one value appears twice  
+- **Correct Flow:** compute math or XOR → isolate repeating & missing  
+- **Similar Problems:**  
+  * Missing number (single missing)  
+  * Find duplicate in array  
+  * Multiple missing / multiple duplicates  
+- **Tags:** Math, XOR, HashMap, Arrays, Number properties

@@ -57,3 +57,139 @@
 **Tags:** hashing, frequency-map, multiset-difference, array-comparison, sorting-required
 
 ---
+
+# 📝 DSA LOG — Q170: Problem With Given Difference
+
+**One-Liner Summary:**  
+Check if any two numbers differ by exactly `B` using hashing or two pointers.
+
+**Pattern:**  
+Difference problems, hashing lookup, two-pointer on sorted array.
+
+**Key Trick:**  
+For every `x`, check:  
+- `x + B` exists  
+- `x - B` exists  
+(Handles absolute difference naturally.)  
+If `B == 0`, check for duplicates.
+
+**Mistake to Avoid:**  
+- Forgetting absolute difference  
+- Not handling `B = 0`  
+- Two pointers overlapping (`i == j`)  
+- Using O(N²) on N=100000 arrays  
+
+**Approaches:**  
+- Brute Force → O(N²)  
+- Two Pointers (after sort) → O(N log N)  
+- HashSet (best) → O(N)
+
+**Similar Problems:**  
+- Two Sum  
+- Pair With Given Sum  
+- Count pairs with difference K  
+- Duplicate within K distance
+
+**Tags:**  
+`Hashing`, `Two Pointers`, `Arrays`, `Difference`, `Searching`
+
+# 📝 DSA LOG — Q171: Array Pairs Divisible By K
+
+**One-Liner Summary:**  
+Check if all elements can be paired such that each pair’s sum is divisible by `k`.
+
+**Pattern:**  
+Remainder pairing, modular arithmetic, frequency matching.
+
+**Key Trick:**  
+Use remainder frequencies:  
+- r pairs with k-r  
+- Special cases:  
+  - remainder 0 → count must be even  
+  - remainder k/2 (when k even) → count must be even  
+
+**Mistake to Avoid:**  
+- Not normalizing negative remainders  
+- Forgetting special case `k % 2 == 0`  
+- Directly using sorting / two pointers (doesn’t work here)  
+- Checking only freq[r] but not freq[k-r]
+
+**Approaches:**  
+- Remainder frequency array (O(n + k))  
+- HashMap version (slower but same logic)
+
+**Similar Problems:**  
+- Check if array can be paired with difference k  
+- Pairs divisible by 60 (LeetCode bikes problem)  
+- Count pairs divisible by k  
+- Pair sum constraints with modular arithmetic  
+
+**Tags:**  
+`Hashing`, `Math`, `Remainders`, `Arrays`, `Modulo`, `Pairing`
+
+# 📝 DSA LOG — Q172: Largest Subarray with 0 Sum
+
+**One-Liner Summary:**  
+Find the longest contiguous segment where the sum equals zero using prefix sums + hashmap.
+
+**Pattern:**  
+Prefix sum, hashmap, subarray sum equals target.
+
+**Key Trick:**  
+If a prefix sum repeats, the subarray between indices cancels to zero.  
+Store only the *earliest* occurrence of each prefix sum to maximize length.
+
+**Mistake to Avoid:**  
+- Forgetting to check when prefix sum itself becomes zero  
+- Overwriting prefix sum entries in the map  
+- Using brute force on large arrays  
+- Not handling negative numbers (prefix logic works fine)
+
+**Approaches:**  
+- Brute Force O(N²)  
+- Prefix Sum + HashMap O(N) (optimal)
+
+**Similar Problems:**  
+- Longest subarray with sum = K  
+- Count subarrays with sum = 0  
+- Largest subarray divisible by K  
+- Subarray sum equals target (LeetCode)
+
+**Tags:**  
+`Hashing`, `Prefix Sum`, `Subarrays`, `Arrays`, `Zero Sum`
+
+### 🔑 LOG — Q173 Group Anagrams
+
+- **Pattern:** HashMap grouping + Custom sorting rule  
+- **Key Trick:** Sort groups by *first encountered word*, not by anagram key  
+- **Mistake to Avoid:** Sorting using sorted-key (like "act", "aet") → WRONG order  
+- **Correct Flow:** build groups → record first word → sort groups by firstWord → print in input order  
+- **Similar Problems:**  
+  * Group Anagrams (LeetCode 49)  
+  * Word Frequency Hashing  
+  * Custom Sorting by Metadata  
+- **Tags:** HashMap, Strings, Sorting, Anagrams, Custom Comparator
+
+### 🔑 LOG — Q176 Count Number of Pairs With Absolute Difference K
+
+- **Pattern:** HashMap frequency + HashSet uniqueness  
+- **Key Trick:** Separate cases → k = 0 (freq ≥ 2), k > 0 (check x + k)  
+- **Mistake to Avoid:** Checking both (x + k) and (x - k) → double counts  
+- **Correct Flow:** build freq → if k=0 count repeats → else check unique keys  
+- **Similar Problems:**  
+  * Count pairs with sum K  
+  * Two-sum variations  
+  * Count distinct value pairs  
+- **Tags:** HashMap, HashSet, Differences, Unordered Pairs, Frequency counting
+
+### 🔑 LOG — Q176 Count Number of Pairs With Absolute Difference K
+
+- **Pattern:** HashMap frequency + HashSet uniqueness  
+- **Key Trick:** Separate cases → k = 0 (freq ≥ 2), k > 0 (check x + k)  
+- **Mistake to Avoid:** Checking both (x + k) and (x - k) → double counts  
+- **Correct Flow:** build freq → if k=0 count repeats → else check unique keys  
+- **Similar Problems:**  
+  * Count pairs with sum K  
+  * Two-sum variations  
+  * Count distinct value pairs  
+- **Tags:** HashMap, HashSet, Differences, Unordered Pairs, Frequency counting
