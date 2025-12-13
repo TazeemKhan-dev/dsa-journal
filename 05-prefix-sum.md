@@ -84,3 +84,33 @@
   * Pivot index (sum-based)  
   * Peaks / valley detection  
 - **Tags:** Arrays, Prefix/Suffix, Comparisons, Linear Scan
+
+### Q178 — Subarray Sum Divisible by K 
+
+- **One-Liner Summary:**  
+  Count subarrays whose sum is divisible by `k` using prefix-sum remainders and frequency counting.
+
+- **Pattern:**  
+  Prefix Sum + HashMap (Remainder Frequency)
+
+- **Key Trick:**  
+  If two prefix sums have the same remainder mod `k`, their difference (the subarray) is divisible by `k`.  
+  Initialize `freq[0] = 1` to count subarrays starting at index `0`.
+
+- **Approaches:**  
+  Brute Force → Prefix Sum (O(n²)) → Prefix Remainder Frequency (O(n))
+
+- **Common Mistakes:**  
+  - Forgetting to normalize negative remainders: `(sum % k + k) % k`  
+  - Missing `freq[0] = 1` initialization  
+  - Treating it like a sliding window (it’s not)  
+  - Using array freq when `k` is very large (memory issue)
+
+- **Similar Problems:**  
+  - Subarrays with sum equal to `k`  
+  - Longest subarray with sum divisible by `k`  
+  - Longest subarray with equal 0s and 1s  
+  - Subarrays with equal 0s, 1s, and 2s
+
+- **Tags:**  
+  prefix-sum, hashmap, modulo, subarray, counting
