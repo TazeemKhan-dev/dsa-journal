@@ -7,7 +7,7 @@ Carry propagation
 Reverse construction
 
 ## Key Trick
-Store `sum % 10` as the current digit and propagate `sum / 10` as carry, while traversing from the last index of both arrays.
+Store sum % 10 as the current digit and propagate sum / 10 as carry, while traversing from the last index of both arrays.
 
 ## Mistake / Insight
 Mistake  
@@ -15,8 +15,8 @@ Forgetting that digits are collected in reverse order and returning them without
 
 Insight  
 The exact sequence matters:  
-    First store `sum % 10` into result  
-    Then move `sum / 10` into carry  
+    First store sum % 10 into result  
+    Then move sum / 10 into carry  
 This guarantees correct digit extraction and carry flow.
 
 ## Status
