@@ -1,0 +1,279 @@
+🎯 GOAL
+
+I am building a production-grade GitHub-style Markdown Navigator for DSA learning, with strict API protection and quota control to prevent GitHub API exhaustion.
+
+This is NOT a GitHub clone — it is inspired by GitHub’s navigation and interaction patterns, but optimized for structured learning, not browsing.
+
+This system must remain:
+deterministic
+quota-safe
+session-locked
+SPA-stable
+production-grade
+
+
+📁 AUTHORITATIVE FILE TREE (CURRENT STATE)
+
+.next/
+
+app/
+├─ admin/
+│ ├─ dashboard/
+│ │ └─ page.tsx            # Admin dashboard UI
+│ ├─ login/
+│ │ └─ page.tsx            # Admin login UI
+│ └─ page.tsx              # Admin entry
+│
+├─ api/
+│ ├─ admin/
+│ │ ├─ login/
+│ │ ├─ logout/
+│ │ ├─ revalidate/
+│ │ ├─ session/
+│ │ └─ tokens/
+│ │
+│ ├─ journal/
+│ │ └─ route.ts            # Protected markdown fetch (journal repo)
+│ │
+│ └─ markdown/
+│     └─ route.ts          # Protected markdown fetch (generic repos)
+│
+├─ journal/                # Journal-specific shell entry
+│
+├─ favicon.ico
+├─ globals.css             # ONLY global CSS file
+├─ layout.tsx              # Global layout + theme bootstrap
+├─ not-found.tsx
+└─ page.tsx                # Entry → mounts RepoShell
+
+
+components/
+├─ admin/
+│ ├─ CreateTokenModal.tsx
+│ ├─ EditTokenModal.tsx
+│ └─ TokenRow.tsx
+│
+├─ info/
+│ ├─ AboutThisApp.tsx
+│ ├─ FairUsageInfo.tsx
+│ └─ KeyboardShortcutsInfo.tsx
+│
+├─ DrawOverlay.tsx
+├─ GlobalBlockedScreen.tsx
+├─ InfoModal.tsx
+├─ MarkdownSkeleton.tsx
+├─ MarkdownViewer.tsx
+├─ RepoContent.tsx
+├─ RepoShell.tsx
+├─ RevisionMode.tsx
+├─ Sidebar.tsx
+├─ SidebarSearch.tsx
+├─ TableOfContents.tsx
+├─ TokenEntryModal.tsx
+└─ TopNavbar.tsx
+
+
+lib/
+├─ github.ts               # GitHub API tree + file fetch
+├─ indexer.ts              # buildIndex() — folder + file normalization
+├─ redis.ts                # Upstash Redis client
+└─ token.ts                # 🔐 Token system (quota + session lock)
+
+
+public/
+.env.local
+middleware.ts              # Protects /admin + /api/admin routes
+next.config.ts
+eslint.config.mjs
+
+
+🧱 CORE APP FEATURES (LOCKED — DO NOT BREAK)
+
+📂 Navigation & UI
+
+Sidebar-based file navigation  
+Folder expand / collapse  
+Active file highlighting  
+Auto-scroll to active file  
+Sidebar + TOC toggle  
+Global search (Fuse.js)  
+Keyboard-first UX  
+Mobile-safe behavior  
+SPA-style navigation using React state + URL hash  
+ZERO route remounts  
+Single scroll container (NO window scroll)  
+Split-view shares activePath  
+Invalid hashes soft-reset (no reload)  
+Repo change resets state, refresh does NOT  
+
+
+📄 Markdown
+
+GitHub-Flavored Markdown (GFM)  
+Copy buttons  
+Font zoom  
+Stable TOC with active section tracking  
+Single backend fetch per file (shared across split panes)  
+
+
+📘 Revision Mode
+
+Flashcard-style learning  
+Front (Problem / Examples)  
+Back (Approach Code)  
+Keyboard navigation between approaches  
+Same access rules as Read mode  
+Disables split + TOC automatically  
+
+
+🔀 Split View (Desktop Only)
+
+Vertical & horizontal split  
+Same SPA shell (shared activePath)  
+No duplicate GitHub fetches  
+Independent scroll containers  
+Resizable divider  
+Disabled on mobile  
+
+
+✍️ Draw Mode
+
+Client-only overlay  
+No markdown mutation  
+Keyboard toggle (D)  
+Works in read + split mode  
+
+
+🧭 ONBOARDING & INFO SYSTEM
+
+Guided Tour  
+Shown only on first visit  
+Can be manually started from Info → Start Guided Tour  
+
+Explains:
+Sidebar navigation  
+Revision mode  
+Split view (desktop-only)  
+Draw mode  
+Search & TOC  
+
+Never forces UI state  
+Skips desktop-only steps on mobile  
+
+Info Modal  
+Tabs:
+About this App  
+Keyboard Shortcuts  
+Fair Usage & Limits  
+
+Mobile:
+Single stacked tab  
+
+Desktop:
+Sidebar tabs  
+
+Footer attribution only  
+
+
+🔐 ACCESS CONTROL SYSTEM (CORE FOCUS)
+
+Identity Model
+
+Each request is identified by:
+x-dev-token → access identity  
+x-session-id → browser instance  
+
+Public token via:
+NEXT_PUBLIC_PUBLIC_TOKEN  
+
+ALL GitHub API calls are backend-gated  
+
+
+🧠 TOKEN META (REDIS)
+
+token:<token>:meta {
+  name
+  quotaScope        // session | token
+  resetPolicy       // daily | never
+  limit
+  enabled
+  createdAt
+}
+
+
+🧠 SESSION LOCK (ANTI-SHARING)
+
+token:<token>:active_session = <sessionId>
+
+TTL-based sliding lock  
+Same session refreshes TTL  
+Different session → BLOCKED (TOKEN_IN_USE)  
+
+
+📊 QUOTA SYSTEM (CRITICAL)
+
+quota:<scope>:<date | lifetime>
+
+Where scope is:
+session:<sessionId>  
+token:<token>  
+
+Rules:
+Checked BEFORE GitHub fetch  
+Consumed ONLY AFTER successful fetch  
+Daily quotas expire via TTL  
+Lifetime quotas never expire  
+
+
+🚫 BLOCKED USER UX (MANDATORY)
+
+States:
+ok  
+blocked  
+awaiting_token  
+
+Rules:
+Fullscreen blocked screen  
+Reason always shown  
+Actions:
+Retry access  
+Enter token  
+Contact via LinkedIn  
+
+No skeletons  
+No silent failures  
+
+LinkedIn:
+https://www.linkedin.com/in/tazeem-khan-662a24207/  
+
+
+🧑‍💻 ADMIN SYSTEM
+
+Auth:
+Password-based  
+ADMIN_PASSWORD env  
+HTTP-only cookie  
+Protected by middleware  
+
+Capabilities:
+List tokens (SCAN-based)  
+Create token  
+Enable / disable token  
+Reset quota  
+Delete token  
+Switch quota scope  
+Trigger revalidation  
+Client-side admin toast after actions  
+
+
+🚫 HARD RULES
+
+Before suggesting ANY change:
+Ask for the relevant file(s)  
+Do NOT assume implementations  
+Do NOT invent missing code  
+Do NOT refactor architecture  
+Fix ONE thing at a time  
+Respect Redis free-tier limits  
+Do NOT break existing UX  
+Backend first, UI later
