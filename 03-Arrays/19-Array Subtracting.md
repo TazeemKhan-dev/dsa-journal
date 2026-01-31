@@ -1,36 +1,24 @@
 ## One-Liner Summary
-Subtract two numbers stored as digit arrays by simulating elementary-school subtraction with borrow from right to left.
+Digit-by-digit subtraction of two number arrays using borrow, similar to manual arithmetic.
 
 ## Pattern
-Digit-wise simulation  
-Borrow propagation  
-Reverse construction
+Digit simulation, elementary math, carry/borrow propagation.
 
 ## Key Trick
-At each position:
-    Subtract current digits and existing borrow  
-    If result is negative, add 10 and set borrow to 1  
-    Store the resulting digit
+Process from right to left and propagate borrow just like hand subtraction.
 
 ## Mistake / Insight
-Mistake  
-Forgetting to handle borrow before subtracting the second array digit.
+Mistake: Subtracting from left to right breaks place value logic.  
+Insight: Borrow must flow from less significant digit to more significant digit.
 
-Insight  
-The borrow must be applied first to arr1 digit, then arr2 is subtracted. This guarantees correct cascading borrow.
-
-## Status
+## Status (❌/⚠️/✅)
 ✅
 
 ## Similar Problems
-Add Arrays  
+Add Two Numbers  
+Subtract Two Numbers Represented as Linked Lists  
 Multiply Strings  
-Plus One  
-Subtract Linked List Numbers
+Plus One
 
 ## Tags
-array  
-math  
-borrow  
-simulation  
-digits
+array, math, digit-manipulation, simulation, big-number
